@@ -17,9 +17,6 @@
     "King" => 13
   );
 
-//
-//print_r($deal);
-
 ?>
 
 <!DOCTYPE html>
@@ -33,13 +30,13 @@
     <p>Today is <?php echo date('l jS \of F Y h:i:s A'); ?>.</p>
 	<p><?php   
 	    	foreach($suits as $suit){
-		      	echo "$suit" . "<br />";
+		      	$suitName =  strtoupper("$suit");
 				foreach($faces as $face => $suit){
-			  		echo "{$face} => {$suit}" . "<br />";
+			  		print_r( "$face of $suitName" . "<br />");
 			  		
 				};
-				print_r($suits);
-			};	 		 
+			};
+				 		 
 		?>
 	</p>
 </body>
