@@ -21,9 +21,19 @@ $faces = array (
 
     class CardSuitValue 
     {
-        public $suits = array();
-        public $face = array();
+        public $suits;
+        public $face;
         public $value = '';
+
+        public function setSuit($suits)
+        {
+            $this->suits = ucwords($suits);
+        }
+
+        public function getSuit()
+        {
+            return $this->suits;
+        }
 
         public function __construct($Suits, $Face, $Value) 
         {
@@ -33,9 +43,9 @@ $faces = array (
 
         }
 
-        public function eachCard()
+        public function eachCard($Face, $Suits)
         {
-            return $this->$face . " of " . $this->suits . "<br />";
+            return $this->face . " of " . $this->suits . "<br />";
         }
 
         // public function addCard($suited, $face, $value){
@@ -73,9 +83,12 @@ $faces = array (
     <p>Today is <?php echo date('l jS \of F Y h:i:s A'); ?>.</p>
 	<p><?php 
 
-        $card = new CardSuitValue("Hearts", "2", 2);
+        $card = new CardSuitValue("hearts", "2", 2);
         var_dump($card);
-
+        $card->setSuit("hearts");
+        echo $card->eachCard("2", "hearts");
+        echo $card->getSuit();
+        
 
 
 
