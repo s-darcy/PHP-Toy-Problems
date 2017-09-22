@@ -2,22 +2,22 @@
     include "classes/card.php";
     include "classes/deck.php";
 
-$suits = array ("clubs", "diamonds", "hearts", "spades"); 
-$faces = array (
-      "Ace" => 1, 
-      "2" => 2,
-      "3" => 3, 
-      "4" => 4, 
-      "5" => 5, 
-      "6" => 6, 
-      "7" => 7,
-      "8" => 8, 
-      "9" => 9, 
-      "10" => 10, 
-      "Jack" => 11, 
-      "Queen" => 12, 
-      "King" => 13
-    );
+    $suits = array ("clubs", "diamonds", "hearts", "spades"); 
+    $faces = array (
+        "Ace" => 1, 
+        "2" => 2,
+        "3" => 3, 
+        "4" => 4, 
+        "5" => 5, 
+        "6" => 6, 
+        "7" => 7,
+        "8" => 8, 
+        "9" => 9, 
+        "10" => 10, 
+        "Jack" => 11, 
+        "Queen" => 12, 
+        "King" => 13
+        );
 
     class CardSuitValue 
     {
@@ -47,29 +47,24 @@ $faces = array (
         {
             return $this->face . " of " . $this->suits . "<br />";
         }
-
-        // public function addCard($suited, $face, $value){
-        //     $this->deck[] = array (
-        //         "suited" => ucwords($suited);
-        //         "face" => $face;
-        //         "value" => $value;
-        //     );    
-        // }
-
-        // public function getAddCard() {
-        //     return $this-> $deck;
-        // }
     }
 
-
 	class DeckOfCards
-    {
+    {   
+        public $suits;
+        public $face;
+        public $value = '';
+
         public $deck = array();
-        // public function shuffleUp(){
-    
+
+        public function addCard ($Suits, $Face, $Value = null)
+        {
+            return $this->array_push($deck, $Suits, $face, $value);
+        }
+        // public function shuffleUp()
+        // {
         // };
     } 
-
 ?>
 
 <!DOCTYPE html>
@@ -79,44 +74,40 @@ $faces = array (
         <meta name="author" content="your name here">
         <title>Deck of Cards</title>
     </head>
-<body>
-    <p>Today is <?php echo date('l jS \of F Y h:i:s A'); ?>.</p>
-	<p><?php 
+    <body>
+        <p>Today is <?php echo date('l jS \of F Y h:i:s A'); ?>.</p>
+        <p>
+        <?php 
 
-        $card = new CardSuitValue("hearts", "2", 2);
-        var_dump($card);
-        $card->setSuit("hearts");
-        echo $card->eachCard("2", "hearts");
-        echo $card->getSuit();
-        
+            $card = new CardSuitValue("hearts", "2", 2);
+            var_dump($card);
+            $card->setSuit("hearts");
+            echo $card->eachCard("2", "hearts");
+            echo $card->getSuit();
 
+            foreach($suits as $suit){
+                print_r( "$suit" . "<br />");
+                foreach($faces as $keys => $value){
+                    print_r("$suit  $keys" . "<br />");
+                    print_r($value);
+                    $createCard = new DeckOfCards($Suits, $Face, $Value);            
+                    return $createCard->addCard($suit, $keys, $value);
+                    print_r($createCard);
+                    // return $createCard->addCard($suit, $keys, $value);
+                    // print_r($createCard);
+                    // return print_r($createCard("$suit", "$keys", "$value")); 
+                    // array_push($deck, $createCard);
+                };
+            // print_r( "$createCard" . "<br />");
+//             }
+            }
+        // };
+                
 
-
-    //   $all_Suits = new Card_Suit();
-    //   var_dump($all_Suits->$suits);
-    //   var_dump($all_Suits);
-    // class SuitClass extends CardSuit {
-    //     function __construct() {
-    //         parent::__construct();
-    //         print_r("$suit" . "<br />");
-    //     }
-    // }            
-
-                    //  foreach($suits as $suit){ 
-                         // $suitName =  strtoupper("$suit");
-    //                 foreach($faces as $face => $suit){
-    //                     print_r( "$face of $suitName" . "<br />");
-    //                 };
-    //             print_r($deck);
-    //             }
-    //         }
-    // };
-			
-
-			//after I get the both elements into the $deck array, use implode() to concatenate the words	 		 
-		?>
-	</p>
-</body>
+                //after I get the both elements into the $deck array, use implode() to concatenate the words	 		 
+            ?>
+        </p>
+    </body>
 </html>
 <!--
 NORMAL:
