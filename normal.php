@@ -85,14 +85,16 @@
             echo $card->eachCard("2", "hearts");
             echo $card->getSuit();
 
+                // $createCard = new DeckOfCards($Suits, $Face, $Value);            
+                // $createCard->addCard($suit, $keys, $value);
+                // print_r($createCard);
+
             foreach($suits as $suit){
                 print_r( "$suit" . "<br />");
                 foreach($faces as $keys => $value){
-                    print_r("$suit  $keys" . "<br />");
+                    print_r("$key" ." of ".  "$suit" . "<br />");
                     print_r($value);
-                    $createCard = new DeckOfCards($Suits, $Face, $Value);            
-                    return $createCard->addCard($suit, $keys, $value);
-                    print_r($createCard);
+
                     // return $createCard->addCard($suit, $keys, $value);
                     // print_r($createCard);
                     // return print_r($createCard("$suit", "$keys", "$value")); 
