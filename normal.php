@@ -57,10 +57,10 @@
 
         public $deck = array();
 
-        public function addCard ($Suits, $Face, $Value = null)
-        {
-            return $this->array_push($deck, $suits, $face, $value);
-        }
+        // public function addCard ($Suits, $Face, $Value = null)
+        // {
+        //     return $this->array_push($deck, $suits, $face, $value);
+        // }
         // public function shuffleUp()
         // {
         // };
@@ -85,25 +85,28 @@
             echo $card->eachCard("2", "hearts");
             echo $card->getSuit();
 
-                $createCard = new DeckOfCards($Suits, $Face, $Value);            
-                // print_r($createCard);
+                $createCard = new DeckOfCards($Suits, $Face, $Value);             
+                print_r($createCard);
 
             foreach($suits as $suit){
                 print_r("<br />" . ucwords("$suit") . "<br />");
                 foreach($faces as $keys => $value){
                     print_r("$keys" ." of ".  ucwords("$suit") . "<br />");
-                    $createCard = new DeckOfCards($suit, $keys, $value); 
+                    $object = array(
+                        'suit' => $suit,
+                        'face' => $keys,
+                        'value' => $value
+                    );
+                    print_r($object);
+                    // $createCard ("$suit", "$keys", "$value");
+                    
                     print_r($createCard);
-                    // return $createCard->addCard($suit, $keys, $value);
-                    // print_r($createCard);
-                    // return print_r($createCard("$suit", "$keys", "$value")); 
-                    // array_push($deck, $createCard);
+
                 };
             // print_r( "$createCard" . "<br />");
 //             }
             }
         // };
-                
 
                 //after I get the both elements into the $deck array, use implode() to concatenate the words	 		 
             ?>
