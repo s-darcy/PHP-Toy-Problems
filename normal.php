@@ -2,6 +2,7 @@
     include "classes/card.php";
     include "classes/deck.php";
 
+    $deck = array();
     $suits = array ("clubs", "diamonds", "hearts", "spades"); 
     $faces = array (
         "Ace" => 1, 
@@ -55,15 +56,22 @@
         public $face;
         public $value = '';
 
-        public $deck = array();
+        public function addCard ($Suits, $Face, $Value = null)
+        {
+            return $this->array_push($deck, $suits, $face, $value);
+        }
 
-        // public function addCard ($Suits, $Face, $Value = null)
-        // {
-        //     return $this->array_push($deck, $suits, $face, $value);
-        // }
-        // public function shuffleUp()
-        // {
-        // };
+        public function Shuffler (&$deck) 
+        {   
+            $keys = array_keys($deck);
+            shuffle($deck);
+            foreach ($keys as $key)
+            {
+                $new[$key] = $deck[$key]
+            }
+            $deck = $new;
+            return true;
+        }
     } 
 ?>
 
@@ -87,6 +95,7 @@
 
                 $createCard = new DeckOfCards($Suits, $Face, $Value);             
                 print_r($createCard);
+                
 
             foreach($suits as $suit){
                 print_r("<br />" . ucwords("$suit") . "<br />");
@@ -95,20 +104,16 @@
                     $object = array(
                         'suit' => $suit,
                         'face' => $keys,
-                        'value' => $value
+                        'value' => $value,
                     );
                     print_r($object);
-                    // $createCard ("$suit", "$keys", "$value");
-                    
-                    print_r($createCard);
+                    array_push($deck, $object);
 
                 };
-            // print_r( "$createCard" . "<br />");
-//             }
             }
-        // };
+            var_dump($deck);
+            
 
-                //after I get the both elements into the $deck array, use implode() to concatenate the words	 		 
             ?>
         </p>
     </body>
