@@ -59,7 +59,7 @@
 
         public function addCard ($Suits, $Face, $Value = null)
         {
-            return $this->array_push($deck, $Suits, $face, $value);
+            return $this->array_push($deck, $suits, $face, $value);
         }
         // public function shuffleUp()
         // {
@@ -85,16 +85,15 @@
             echo $card->eachCard("2", "hearts");
             echo $card->getSuit();
 
-                // $createCard = new DeckOfCards($Suits, $Face, $Value);            
-                // $createCard->addCard($suit, $keys, $value);
+                $createCard = new DeckOfCards($Suits, $Face, $Value);            
                 // print_r($createCard);
 
             foreach($suits as $suit){
                 print_r("<br />" . ucwords("$suit") . "<br />");
                 foreach($faces as $keys => $value){
                     print_r("$keys" ." of ".  ucwords("$suit") . "<br />");
-
-
+                    $createCard = new DeckOfCards($suit, $keys, $value); 
+                    print_r($createCard);
                     // return $createCard->addCard($suit, $keys, $value);
                     // print_r($createCard);
                     // return print_r($createCard("$suit", "$keys", "$value")); 
