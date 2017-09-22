@@ -90,10 +90,10 @@
                 // print_r($createCard);
 
             foreach($suits as $suit){
-                print_r( "$suit" . "<br />");
+                print_r("<br />" . ucwords("$suit") . "<br />");
                 foreach($faces as $keys => $value){
-                    print_r("$key" ." of ".  "$suit" . "<br />");
-                    print_r($value);
+                    print_r("$keys" ." of ".  ucwords("$suit") . "<br />");
+
 
                     // return $createCard->addCard($suit, $keys, $value);
                     // print_r($createCard);
